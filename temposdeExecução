@@ -1,0 +1,23 @@
+import time
+import pandas as pd
+from matplotlib import pyplot as plt
+
+tempos=[]
+contador=0
+for n in range(1,1000000000000,10**6):
+    inicio = time.time()
+    soma = n*(n+1)*0.5
+    #print(soma)
+    fim=time.time()
+    tempos.append(fim-inicio)
+    contador=contador + 1 
+
+t=pd.DataFrame(tempos)
+
+print(tempos)
+print(contador)
+print('-----------------------------\n')
+print(t)
+
+#guardar os dados em formato csv
+t.to_csv('teste.csv')
